@@ -41,7 +41,7 @@ class Register extends React.Component {
     })//kontrola co se vraci v response a podle toho route
     .then(response => response.json())
     .then(user => {
-      if(user.id){
+      if(user.id){//bez id
         this.props.loadUser(user);
         this.props.onRouteChange('home');
       }
@@ -52,13 +52,14 @@ class Register extends React.Component {
     return (
       <article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow center" >
         <main className="pa4 black-80">
-          <form className="measure">
+        {/* must REMOVE form, because form is submitting form data as query parameters */}
+          {/* <form className="measure"> */}
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
               <legend className="f1 fw6 ph0 mh0 center">Register</legend>
               <div className="mt3">
                 <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
                 <input onChange = { this.onNameChange }
-                className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="name" name="email-address" id="email-address" />
+                className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="email-address" id="email-address" />
               </div>
               <div className="mt3">
                 <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
@@ -78,7 +79,7 @@ class Register extends React.Component {
                 type="submit"
                 defaultValue="Register" />
             </div>
-          </form>
+          {/* </form> */}
         </main>
       </article >
     );

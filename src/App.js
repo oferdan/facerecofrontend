@@ -49,21 +49,7 @@ const initialState = {
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      input: '',
-      imageUrl: '',
-      box: {},
-      route: 'signin',
-      isSignedIn: false,
-      user: {
-        id: '',
-        name: '',
-        email: '',
-        password: '',
-        entries: 0,
-        joined: ''
-      }
-    }
+    this.state = initialState;
   }
 
   //lifecycle hook - pomoci fetch se pripojim na server - pro test
@@ -80,7 +66,6 @@ class App extends Component {
         id: userdata.id,
         name: userdata.name,
         email: userdata.email,
-        password: userdata.password,
         entries: userdata.entries,
         joined: userdata.joined
       }
@@ -111,6 +96,7 @@ class App extends Component {
     //console.log(event.target.value);
     this.setState({ input: event.target.value });
   }
+
 
   onButtonSubmit = () => {
     //console.log('click');
@@ -150,7 +136,7 @@ class App extends Component {
       })
       .catch(err => console.log(err));
   }
-
+  
   onRouteChange = (route) => {
     if (route === 'signout') {
       this.setState({ initialState }) //isSignedIn: false
@@ -161,6 +147,7 @@ class App extends Component {
   }
 
   render() {
+    //const { isSignedIn, imageUrl, route, box } = this.state; //dekonstrukci nepouzivam
     return (
       <div className="App">
         <Particles className='particles' params={particlesOptions} />
