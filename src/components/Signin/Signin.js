@@ -25,7 +25,7 @@ class Signin extends React.Component {
   onSubmitSignIn = () => {
     //console.log(this.state);
     //fetch defaultne dela GET, proto v objektu popisu jak ma vypadat POST
-    fetch('http://ferdanreco.herokuapp.com/signin', {  
+    fetch('https://ferdanreco.herokuapp.com/signin', {  
     // fetch('http://localhost:3000/signin', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
