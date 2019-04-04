@@ -104,8 +104,8 @@ class App extends Component {
     //presun na server
     //app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
     //pridani fetch pro rozdeleni imageurl
-    // fetch('https://ferdanreco.herokuapp.com/imageurl', {
-    fetch('http://localhost:3000/imageurl', {
+    fetch('http://ferdanreco.herokuapp.com/imageurl', {
+    // fetch('http://localhost:3000/imageurl', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -116,8 +116,8 @@ class App extends Component {
       .then(response => response.json()) //protoze mam fetch() musim konverzi do JSON
       .then(response => {
         if (response) {
-          // fetch('https://ferdanreco.herokuapp.com/image', {
-          fetch('http://localhost:3000/image', {
+          fetch('http://ferdanreco.herokuapp.com/image', {
+          // fetch('http://localhost:3000/image', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
